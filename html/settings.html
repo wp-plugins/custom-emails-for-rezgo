@@ -1,0 +1,135 @@
+<h2><?php _e( 'Custom Emailer For Rezgo', $domain ) ?></h2>
+<form method="post" action="">
+    <fieldset>
+        <legend style="font-weight:bold"><?php _e( 'Rezgo Account Settings', $domain ) ?></legend>
+        <div style="position: relative">
+        <br>
+        <strong><?php _e( 'Account CID', $domain ) ?>: </strong><input id="account_cid" size=20 type="text" value="<?php echo $this->settings['rezgo_account_cid']; ?>" /> <br>
+        <br>
+        <strong><?php _e( 'API key', $domain ) ?>:</strong><input id="api_key" size=20 type="text" value="<?php echo $this->settings['rezgo_api_key']; ?>" />
+        <br><br>
+        <input type="submit" class="button-primary" value="<?php _e( 'Save Changes', $domain ) ?>" id='submitKeys' />
+         <div id="submitKey_successDiv">
+	      <div class="submitKey_Icon">
+		  <img src="<?php echo $this->plugin_base_url?>images/success.gif"><br>
+		  <?php _e( 'Connected', $domain ) ?>
+	      </div>
+	      <div class="submitKey_Msg">
+		  <?php _e( 'The API Connection is working', $domain ) ?><br><br>
+		  <a id="company_website" href="" target=_blank></a>
+	      </div>
+         </div>
+         <div id="submitKey_failedDiv">
+	      <div class="submitKey_Icon">
+		  <img src="<?php echo $this->plugin_base_url?>images/failure.png"><br>
+		  <?php _e( 'Failed', $domain ) ?>
+	      </div>
+	      <div class="submitKey_Msg">
+		  <?php _e( 'The API Connection is NOT working', $domain ) ?><br><br>
+		  <div id="connect_problem"></div>
+	      </span>
+         </div>
+        </div>
+    </fieldset>
+    <br>
+
+    <fieldset>
+        <legend style="font-weight:bold"><?php _e( 'Advanced Settings', $domain ) ?></legend>
+        <div style="position: relative">
+        <strong><?php _e( 'From Name', $domain ) ?>:</strong><input id="from_name" size=40 type="text" value="<?php echo $this->settings['rezgo_from_name']; ?>" /><br>
+        <strong><?php _e( 'From Email Address', $domain ) ?>:</strong><input id="from_email" size=30 type="text" value="<?php echo $this->settings['rezgo_from_email']; ?>" />
+        <br><br>
+            <div style="position:absolute;right:0;top:0;width:50%"><small><?php _e( 'This is the email that all notifications will be sent from. It will also be the reply email so that when people reply to the email, you will receive it directly.', $domain ) ?></small></div>
+        <input type="submit" class="button-primary" value="<?php _e( 'Save Changes', $domain ) ?>" id='submitFromEmail'/>
+        </div>
+    </fieldset>
+    <br>
+
+    <fieldset>
+        <legend style="font-weight:bold"><?php _e( 'Rezgo Webhook Endpoint', $domain ) ?></legend>
+        <?php _e( 'In order for the plugin to send notifications, it requires that Rezgo send notifications to it. The following URL is the Webhook Endpoint. Copy and paste this URL into your Rezgo Webhook Endpoint settings', $domain ) ?>
+        <br><br>
+        <strong><?php echo home_url("/?rezgo-webhook=true"); ?></strong>
+    </fieldset>
+    <br>
+
+
+    <fieldset>
+        <legend style="font-weight:bold"><?php _e( 'Syncronize Tour/Option List', $domain ) ?></legend>
+        <?php _e( 'Notifications are only sent for tour/options that are active in your Rezgo account. If you have deleted or updated your tours or options in Rezgo, you should update your tour/option list', $domain ) ?>
+	<div id="lastUpdatedDiv">
+           <?php _e( 'Last Updated', $domain ) ?> : <span id="last_updated"><?php echo $this->settings['rezgo_last_updated'] ?></span>
+	</div>
+        <br><br>
+        <input type="submit" class="button-primary" value="<?php _e( 'Update Tour/Option List', $domain ) ?>" id='submitSync'/>
+    </fieldset>
+</form>
+
+<script type="text/javascript" >
+jQuery(document).ready(function($) {
+
+    <?php if($this->settings['rezgo_last_updated']) { ?>
+      $( "#lastUpdatedDiv" ).show();
+    <?php } ?>
+    
+    // keys
+    $( "#submitKeys" ).click(function() {
+		$('#submitKey_failedDiv').hide();
+		$('#submitKey_successDiv').hide();
+		var data = { action: 'rezgo_mailer','method': 'ajax_set_keys','account_cid':$('#account_cid').val(), 'api_key':$('#api_key').val()}
+		$.post(ajaxurl, data, function(response) {
+			if(response.result=='success')
+			{
+				$('#submitKey_successDiv').show();
+				$('#company_website').text(response.company_website);
+				$('#company_website').attr('href',response.company_website);
+			}
+			else
+			{
+				$('#submitKey_failedDiv').show();
+				$('#connect_problem').html(response.connect_problem);
+			}
+		}
+		,"json"
+		);
+		return false;
+    });	
+    
+    $( "#submitFromEmail" ).click(function() {
+		var data = { action: 'rezgo_mailer','method': 'ajax_set_from_email','from_email':$('#from_email').val(),'from_name':$('#from_name').val()}
+		$.post(ajaxurl, data, function(response) {
+			if(response.result=='success')
+			{
+				alert(response.message);
+			}
+			else
+			{
+				alert(response.message);
+			}
+		}
+		,"json"
+		);
+		return false;
+    });	
+
+    $( "#submitSync" ).click(function() {
+		var data = { action: 'rezgo_mailer','method': 'ajax_sync_tours'}
+		$.post(ajaxurl, data, function(response) {
+			if(response.result=='success')
+			{
+			$('#last_updated').text(response.last_updated);
+			$("#lastUpdatedDiv").show();
+			alert(response.message);
+			}
+			else
+			{
+				alert(response.message);
+			}
+		}
+		,"json"
+		);
+		return false;
+    });	
+    
+});
+</script>

@@ -1,0 +1,25 @@
+fieldset{border:thin black solid;padding:10px;padding-left:35px;}
+#submitKey_successDiv{position:absolute;right:0;top:0;background-color:green;height:100px;border-radius: 15px;display:none}
+#submitKey_failedDiv{position:absolute;right:0;top:0;background-color:pink;height:100px;border-radius: 5px;display:none}
+.submitKey_Icon{float:left;margin-top:20px;margin-left:20px}
+.submitKey_Msg{float:left;margin-top:20px;margin-left:10px;margin-right:10px;}
+#lastUpdatedDiv{color:green;display:none}
+#company_website{font-size: 1.5em; text-decoration: none; color:black}
+
+#rezgo_notification_deleted{background-color:red;height:40px; font-size: 1.5em; border-radius: 15px; border:1px; text-align:center; width:90%; vertical-align:middle}
+.rezgo_tour{width:200px}
+.rezgo_author{width:200px}
+.rezgo_last_updated{width:100px}
+.rezgo_emails_sent{width:100px}
+.rezgo_actions{width:100px}
+.rezgo_notifications_table{width:100%}
+.rezgo_notifications_table td{border:1px solid black}
+.rezgo_notifications_table th{background-color:lightgray}
+
+#submitSaveNotify {display:none;}
+#rezgo_notification_text{width:700px;height:150px;border-radius: 5px; border:1px black solid}
+#rezgo_notification_html{width:700px;height:250px;border-radius: 5px; border:1px black solid}
+#rezgo_notification_subject{border-radius: 5px; border:1px black solid}
+#rezgo_tour_uid{width:100%}
+#rezgo_loader{color:red;font-size: 1.2em;display:none;text-decoration: blink}
+#rezgo_saved_success{background-color:green; display:none;height:40px; font-size: 1.5em; border-radius: 5px; border:1px; text-align:center; width:90%; vertical-align:middle; margin-top:20px;margin-bottom:20px;}
