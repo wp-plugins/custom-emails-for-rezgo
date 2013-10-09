@@ -8,7 +8,7 @@ Plugin URI: http://wordpress.org/plugins/custom-emails-for-rezgo/
 
 Description: The plugin contains a web hook API endpoint that is triggered when a booking is made in your Rezgo account.  The plugin gives you the ability to create a custom email for every tour and option combination available in your account.
 
-Version: 1.1
+Version: 1.2
 
 Author: alexvp
 

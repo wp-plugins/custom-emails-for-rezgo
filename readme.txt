@@ -4,7 +4,7 @@ Donate link: http://alexvp.elance.com
 Tags:  tour operator software, tour booking system, activity booking software, tours, activities, events, attractions, booking, reservation, ticketing, e-commerce, business, rezgo, custom email, emails, notifications, web hook, api
 Requires at least: 3.0.0
 Tested up to: 3.6
-Stable tag: 1.1
+Stable tag: 1.2
 
 Send custom text or html email messages to customers when they make a booking through your Rezgo online booking engine.
 
@@ -89,6 +89,9 @@ WordPress Admin.  Look for Rezgo Emailer in the sidebar.
 3. Active notifications will appear on the Notifications page. 
 
 == Changelog ==
+
+= 1.2 =
+* HTML / CSS cleanup on settings pages
 
 = 1.1 =
 * Updates to plugin info
