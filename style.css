@@ -1,33 +1,55 @@
-/*fieldset{border:thin black solid;padding:10px;padding-left:35px;}*/
+
 #rez_custom_email_settings .field_frame {
-	-moz-border-radius:5px 5px 5px 5px;
-	-webkit-border-radius:5px 5px 5px 5px;
-	-khtml-border-radius:5px;
-	border:3px solid #ccc;
+	background-color: #FFF;
+	border: 1px solid #DDD;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 	margin:20px 10px;
 	width:900px;
+}
+
+#rez_custom_email_settings input {
+	height:26px;
+}
+#rez_custom_email_settings .button-primary {
+	height:auto !important;
 }
 #rez_custom_email_settings .field_frame .field_contents {
 	padding:10px;
 }
 #rez_custom_email_settings legend {
-	font-weight:bold;
+	font-weight:500;
 	font-size:15px;
-	padding: 8px 10px;
-	color:#666;
-	text-shadow:1px 1px #fff;
+	padding: 10px;
+	color:#FFF;
 	width:880px;
-	background: -webkit-gradient(linear, left top, left bottom, from(#ccc), to(#ddd));
-	background: -moz-linear-gradient(top,  #ccc,  #ddd);
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ccc', endColorstr='#ddd');
+	background-image: linear-gradient(to bottom, #2EA2CC 0px, #0074A2 100%);
+	background-repeat: repeat-x;
+	border-bottom:1px solid #DDD;
+	-webkit-border-top-left-radius: 4px;
+	-webkit-border-top-right-radius: 4px;
+	-moz-border-radius-topleft: 4px;
+	-moz-border-radius-topright: 4px;
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
 }
-
-#submitKey_successDiv{position:absolute;right:0;top:0;background-color:green;height:100px;border-radius: 15px;display:none}
-#submitKey_failedDiv{position:absolute;right:0;top:0;background-color:pink;height:100px;border-radius: 5px;display:none}
-.submitKey_Icon{float:left;margin-top:20px;margin-left:20px}
-.submitKey_Msg{float:left;margin-top:20px;margin-left:10px;margin-right:10px;}
-#lastUpdatedDiv{color:green;display:none}
-#company_website{font-size: 1.5em; text-decoration: none; color:black}
+/*position:absolute;*/
+#rez_custom_email_success,
+#rez_custom_email_error {
+	border-radius: 8px; 
+	float: right;
+	width: 310px;	
+	height: 80px;
+	position: absolute;
+	right: 210px;
+	display:none;
+}
+#rez_custom_email_success { background-color:#DFF0D8; }
+#rez_custom_email_error { background-color:#F2DEDE; }
+.rez_custom_email_icon { float:left; margin-top:20px; margin-left:10px; margin-right:10px; text-align: center; }
+.rez_custom_email_msg { margin-top:20px; margin-left:10px; margin-right:10px; line-height: 22px; }
+#lastUpdatedDiv { color:green; display:none; }
+#company_website { font-size: 1.5em; text-decoration: none; color:black; }
 
 #rezgo_notification_deleted{background-color:red;height:40px; font-size: 1.5em; border-radius: 15px; border:1px; text-align:center; width:90%; vertical-align:middle}
 .rezgo_tour{width:200px}
@@ -36,13 +58,45 @@
 .rezgo_emails_sent{width:100px}
 .rezgo_actions{width:100px}
 .rezgo_notifications_table{width:100%}
-.rezgo_notifications_table td{border:1px solid black}
-.rezgo_notifications_table th{background-color:lightgray}
+.rezgo_notifications_table td{border:1px solid #999}
+.rezgo_notifications_table th {
+	color:#FFF;
+	background-image: linear-gradient(to bottom, #2EA2CC 0px, #0074A2 100%);
+}
 
 #submitSaveNotify {display:none;}
-#rezgo_notification_text{width:700px;height:150px;border-radius: 5px; border:1px black solid}
-#rezgo_notification_html{width:700px;height:250px;border-radius: 5px; border:1px black solid}
-#rezgo_notification_subject{border-radius: 5px; border:1px black solid}
+#rezgo_notification_text{width:90%;height:150px;border-radius: 3px; border:1px #999 solid}
+#rezgo_notification_html{width:90%;height:250px;border-radius: 3px; border:1px #999 solid}
+#rezgo_notification_subject{border-radius: 3px; border:1px #999 solid}
 #rezgo_tour_uid{width:100%}
 #rezgo_loader{color:red;font-size: 1.2em;display:none;text-decoration: blink}
-#rezgo_saved_success{background-color:green; display:none;height:40px; font-size: 1.5em; border-radius: 5px; border:1px; text-align:center; width:90%; vertical-align:middle; margin-top:20px;margin-bottom:20px;}
+#rezgo_saved_success{background-color:green; display:none;height:40px; font-size: 1.5em; border-radius: 3px; border:1px; text-align:center; width:90%; vertical-align:middle; margin-top:20px;margin-bottom:20px;}
+#email_note {
+	/*width:50%;*/
+	font-size:12px;
+}
+/* form styling with definition list */
+#rez_custom_email_settings label {
+	font-weight:bold;
+	font-size:14px;
+	color:#333;
+	padding-top:8px;
+}
+
+dl {
+	clear:both;
+}
+dt {
+	width:12em;
+	height:2em;
+	text-align:right;
+	float:left;
+	clear:left;
+	padding-right:5px;
+}
+dd {
+	margin-left:5px;
+	overflow:hidden;
+	clear:right;
+	height:1%;
+}

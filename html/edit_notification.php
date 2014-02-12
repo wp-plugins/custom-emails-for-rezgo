@@ -1,11 +1,12 @@
-<h2><?php _e( 'Custom Emailer For Rezgo', $domain ) ?></h2>
+<?php if ( ! defined( 'ABSPATH' ) ) exit; /* Exit if accessed directly*/ ?>
+<h1><?php _e( 'Custom Emailer For Rezgo', $domain ) ?></h1>
 
    <div id="rezgo_saved_success"><img src="<?php echo $this->plugin_base_url?>images/success.gif"><?php _e( 'Your changes have been saved', $domain ) ?></div>
    <div id="rez_custom_email_settings">
 	<div class="field_frame">
     <fieldset>
 
-        <legend style="font-weight:bold"><?php _e( 'Notification Details', $domain ) ?></legend>
+        <legend><?php _e( 'Notification Details', $domain ) ?></legend>
 		<div class="field_contents">
         <?php _e( 'Tour / Option', $domain ) ?> <select id="rezgo_tour_uid">
 
@@ -17,9 +18,9 @@
 
         </select>
 
-        <br>
+        <br />
 
-        <br>
+        <br />
 
         <?php _e( 'The subject/message can contain variables. Here are a list of the variables that are supported', $domain ) ?>
 
@@ -35,17 +36,17 @@
 
         <div id=rezgo_loader><?php _e( 'Loading notification...', $domain ) ?></div>
 
-        <?php _e( 'Subject:', $domain ) ?><input id="rezgo_notification_subject" type=text size=120 value="<?php echo esc_html($this->notification->subject)?>"><br>
+        <label><?php _e( 'Subject', $domain ) ?></label>&nbsp;<input id="rezgo_notification_subject" type="text" size="80" value="<?php echo esc_html($this->notification->subject)?>"><br />
 
-        <?php _e( 'TEXT message:', $domain ) ?><br>
+        <label><?php _e( 'TEXT message', $domain ) ?></label><br />
 
-        <textarea id="rezgo_notification_text"><?php echo esc_html($this->notification->message_text)?></textarea><br>
+        <textarea id="rezgo_notification_text"><?php echo esc_html($this->notification->message_text)?></textarea><br />
+				<br />
+        <label><?php _e( 'HTML message', $domain ) ?></label><br />
 
-        <?php _e( 'HTML message:', $domain ) ?><br>
+        <textarea id="rezgo_notification_html"><?php echo esc_html($this->notification->message_html)?></textarea><br />
 
-        <textarea id="rezgo_notification_html"><?php echo esc_html($this->notification->message_html)?></textarea><br>
-
-        <input type="submit" class="button-primary" value="<?php _e( 'Save Notification', $domain ) ?>" id='submitSaveNotify'/>
+        <input type="submit" class="button-primary" value="<?php _e( 'Save Notification', $domain ) ?>" id="submitSaveNotify" />
 		</div>
     </fieldset>
 	</div>
