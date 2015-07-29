@@ -59,7 +59,8 @@ var rezgo_modified_id=0;
 jQuery(document).ready(function($) {
 
     // keys
-
+	$("#submitSaveNotify").show();
+	
     $( "#rezgo_notification_text,#rezgo_notification_html,#rezgo_notification_subject" ).bind('input propertychange', function() {
 
 		if(!rezgo_modified_id)
@@ -68,7 +69,7 @@ jQuery(document).ready(function($) {
 
 			$('#rezgo_saved_success').hide();
 
-			$("#submitSaveNotify").show();
+			//$("#submitSaveNotify").show();
 
 			rezgo_modified_id=$( "#rezgo_tour_uid" ).val();
 
@@ -108,7 +109,7 @@ jQuery(document).ready(function($) {
 
 		$('#rezgo_notification_html').val("");
 
-		$('#submitSaveNotify').hide();
+		//$('#submitSaveNotify').hide();
 
 		$('#rezgo_loader').show();
 
@@ -155,6 +156,11 @@ jQuery(document).ready(function($) {
     function regzo_save_notification(modified_id)
 
     {
+		if(  $("#rezgo_notification_subject").val()==""  || $("#rezgo_notification_text").val()=="" && $("#rezgo_notification_html").val()=="" ) {
+			alert("<?php _e('Please, fill in both Subject and Message!',$domain)?>");
+			return;
+			
+		}
 
 		var data = { action: 'rezgo_mailer','method': 'ajax_save_notification','tour_uid':modified_id,'subject':$("#rezgo_notification_subject").val(),'message_text':$("#rezgo_notification_text").val(),'message_html':$("#rezgo_notification_html").val()}
 
@@ -166,7 +172,7 @@ jQuery(document).ready(function($) {
 
 				rezgo_modified_id=0;
 
-				$('#submitSaveNotify').hide();
+				//$('#submitSaveNotify').hide();
 
 				$('#rezgo_saved_success').show();
 

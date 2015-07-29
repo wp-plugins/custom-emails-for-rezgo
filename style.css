@@ -83,10 +83,10 @@
 	padding-top:8px;
 }
 
-dl {
+#rez_custom_email_settings dl {
 	clear:both;
 }
-dt {
+#rez_custom_email_settings dt {
 	width:12em;
 	height:2em;
 	text-align:right;
@@ -94,7 +94,7 @@ dt {
 	clear:left;
 	padding-right:5px;
 }
-dd {
+#rez_custom_email_settings dd {
 	margin-left:5px;
 	overflow:hidden;
 	clear:right;
